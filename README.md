@@ -8,6 +8,7 @@ new sweEditor.Init(\
 &nbsp;&nbsp;&nbsp;toolbar: [tools],\
 &nbsp;&nbsp;&nbsp;size: ['width', 'height'],\
 &nbsp;&nbsp;&nbsp;resizeable: true/false,\
+&nbsp;&nbsp;&nbsp;sticky: true/false,\
 &nbsp;&nbsp;&nbsp;mode: 'classic'/'balloon'\
 &nbsp;&nbsp;});\
 <br />
@@ -25,6 +26,7 @@ tools - list of tools:\
 &nbsp;&nbsp;'preview' - text preview;\
 size - apps size, gets value in pixels or percents;\
 resizeable - allows user to resize app;\
+sticky - makes fixed toolbar sticky to the top of window;\
 mode - default value is classic, switchs app mode:\
 &nbsp;&nbsp;classic - with fixed toolbar;\
 &nbsp;&nbsp;balloon - small version, popup toolbar on selectionEnd;
