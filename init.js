@@ -7,14 +7,14 @@ class Init
 		Init.selector = params.id + '_' + 'sweEditor';
 		Init.params = params.toolbar;
 		Init.textareaId = params.id;
-		Init.createEditor(params.size, params.mode, params.resizeable);
+		Init.createEditor(params);
 		Init.setObserver();
 		Init.initAppClasses();
 	}
 	
 	/*create editor and set events*/
-	static createEditor(size, mode, scrollable, resizeable) {
-		DOM.createEditor(Init.textareaId, size, Init.getEditorsStyles(), scrollable, resizeable);
+	static createEditor(params) {
+		DOM.createEditor(params);
 		Init.editor = Getter.getEditor();
 		
 		switch (mode) {
@@ -28,7 +28,7 @@ class Init
 		case 'classic':
 		default:
 			/*create fixed toolbar in balloon mode*/
-			Init.createToolbar('swe-toolbar');
+			Init.createToolbar('swe-toolbar', params.sticky ? 'swe-toolbar-sticky' : null);
 			DOM.createBottomPanel();
 			Init.setEventListener(Init.editor, 'input', Init.setCountersValue);
 			Init.setCountersValue();
