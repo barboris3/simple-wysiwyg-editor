@@ -3,7 +3,7 @@
 class DOM
 {
 	/*hide textarea, create editors elements in shadow dom*/
-	static createEditor(id, size = null, styles, scrollable = null, resizeable = null) {
+	static createEditor(id, styles, params) {
 		let textArea = Getter.getElementById(id);
 		textArea.hidden = true;
 		let app = Creator.create({tag: 'div', attributes: {id: Init.selector, style: 'display: inline-block;'}});
@@ -14,16 +14,14 @@ class DOM
 		let editor = Creator.create({tag: 'div', attributes: {id: 'swe-editor'}});
 		editor.contentEditable = true;
 		
-		if(size) {
-			app.style.width = size[0];
-			editor.style.height = size[1];
-			if(scrollable) DOM.addClassToClassList(editor, 'swe-editor-srollable');
+		if(params.hasOwnProperty('size')) {
+			app.style.width = params.size[0];
+			editor.style.height = params.size[1];
 		} else {
 			app.style.width = '100%';
 		}
-		if(resizeable) {
-			DOM.addClassToClassList(editor, 'swe-editor-resizeable');
-		}
+		if(params.hasOwnProperty('resizeable') && params.resizeable)	DOM.addClassToClassList(editor, 'swe-editor-resizeable');
+		
 		if(textArea.value.trim() !== '') {
 			let wrapper = Creator.create({tag: 'DIV', innerHTML: textArea.value})
 			let containers = Getter.getContainers();
