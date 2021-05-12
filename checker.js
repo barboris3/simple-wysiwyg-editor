@@ -68,4 +68,6 @@ class Checker
 	static isArrayOfObjectsIncludesTag(array, tag);
 	
 	static areObjectsEquivalent(obj1, obj2); 
+	
+	static isMobileDevice();
 }
